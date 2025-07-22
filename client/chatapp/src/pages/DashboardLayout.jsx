@@ -31,19 +31,19 @@ export default function DashboardLayout() {
             open={open}
           />
           <NavItem
-            to="/map"
+            to="/dashboard/map"
             icon={<MapPin size={20} />}
             text="Live Map"
             open={open}
           />
           <NavItem
-            to="/users"
+            to="/dashboard/users"
             icon={<Users size={20} />}
             text="Users"
             open={open}
           />
           <NavItem
-            to="/settings"
+            to="/dashboard/settings"
             icon={<Settings size={20} />}
             text="Settings"
             open={open}

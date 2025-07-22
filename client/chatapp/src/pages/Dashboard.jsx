@@ -64,7 +64,6 @@ function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
           {/* Example Card 1 */}
           <Link to="/dashboard/map">
             <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
@@ -87,15 +86,18 @@ function Dashboard() {
             </div>
           </Link>
 
-          {/* Example Card 3 */}
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
-            <h2 className="text-lg font-semibold text-gray-700">
-              User Profile
-            </h2>
-            <p className="text-sm text-gray-500 mt-2">
-              View and update your account information.
-            </p>
-          </div>
+          <Link to="/dashboard/users">
+            {/* Example Card 3 */}
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
+              <h2 className="text-lg font-semibold text-gray-700">
+                User Profile
+              </h2>
+              <p className="text-sm text-gray-500 mt-2">
+                View and update your account information.
+              </p>
+            </div>
+          </Link>
+          
         </div>
       </main>
     </div>
