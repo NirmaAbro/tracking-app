@@ -51,6 +51,16 @@ io.on("connection", (socket) => {
     console.log("📍 Driver Location:", data);
     socket.broadcast.emit("newLocation", data);
   });
+  console.log("🔌 User connected:", socket.id);
+
+  socket.on("driverLocation", ({ id, coords }) => {
+    console.log(`📍 Location from ${id}:`, coords);
+    io.emit("driverLocationUpdate", { id, coords });
+  });
+
+  socket.on("disconnect", () => {
+    console.log("❌ User disconnected:", socket.id);
+  });
 
   socket.on("disconnect", () => {
     console.log("❌ Client disconnected:", socket.id);
