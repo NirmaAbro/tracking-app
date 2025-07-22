@@ -4,10 +4,12 @@ import Login from "./components/Login";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./pages/DashboardLayout";
-import LiveMap from "./components/LiveMap";
+import LiveMap from "./components/MapComponent";
 import UsersPage from "./pages/UsersPage";
 import SettingsPage from "./pages/SettingsPage";
 import ChatBox from "./ChatBox";
+import MapComponent from "./components/Map";
+import DashboardMap from "./pages/DashboardMap";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           path="chat"
           element={<ChatBox name="Ali (Passenger)" role="passenger" />}
         />
+        <Route path="map" element={<DashboardMap />} />
       </Route>
     </Routes>
   );

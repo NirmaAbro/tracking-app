@@ -64,13 +64,16 @@ function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
           {/* Example Card 1 */}
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
-            <h2 className="text-lg font-semibold text-gray-700">Live Map</h2>
-            <p className="text-sm text-gray-500 mt-2">
-              Track drivers and passengers in real-time.
-            </p>
-          </div>
+          <Link to="/dashboard/map">
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all">
+              <h2 className="text-lg font-semibold text-gray-700">Live Map</h2>
+              <p className="text-sm text-gray-500 mt-2">
+                Track drivers and passengers in real-time.
+              </p>
+            </div>
+          </Link>
 
           {/* Example Card 2 */}
           <Link to="/dashboard/chat">
