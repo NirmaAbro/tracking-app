@@ -43,13 +43,24 @@ function Login() {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/api/auth/login", form);
+      const res = await axios.post(
+        "http://localhost:3001/api/auth/login",
+        form
+      );
+      console.log(res.data.user);
+
+      // Save token, name, role to localStorage
+      const { name, role  } = res.data.user;
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("name", name);
+      localStorage.setItem("role", role);
+
       alert("Login successful");
-      navigate("/dashboard");
+      navigate("/dashboard"); // or "/chat" if needed
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
     }
@@ -99,4 +110,3 @@ function Login() {
 }
 
 export default Login;
-
