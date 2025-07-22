@@ -1,40 +1,7 @@
-// import { useState } from "react";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-
-// function Login() {
-//   const [form, setForm] = useState({ email: "", password: "" });
-//   const navigate = useNavigate();
-
-//   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post("http://localhost:3001/api/auth/login", form);
-//       localStorage.setItem("token", res.data.token);
-//       alert("Login successful");
-//       navigate("/dashboard");
-//     } catch (err) {
-//       alert(err.response.data.message || "Login failed");
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <h2>Login</h2>
-//       <input name="email" type="email" placeholder="Email" onChange={handleChange} />
-//       <input name="password" type="password" placeholder="Password" onChange={handleChange} />
-//       <button type="submit">Login</button>
-//     </form>
-//   );
-// }
-
-// export default Login;
-
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -42,7 +9,6 @@ function Login() {
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,15 +20,15 @@ function Login() {
       console.log(res.data.user);
 
       // Save token, name, role to localStorage
-      const { name, role  } = res.data.user;
+      const { name, role } = res.data.user;
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("name", name);
       localStorage.setItem("role", role);
 
-      alert("Login successful");
-      navigate("/dashboard"); // or "/chat" if needed
+      toast.success("Login successful");
+      navigate("/dashboard");
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      toast.error(err.response?.data?.message || "Login failed");
     }
   };
 

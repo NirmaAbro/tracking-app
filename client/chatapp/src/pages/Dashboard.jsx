@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { LogOut, User } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Dashboard() {
   const [role, setRole] = useState("");
@@ -20,7 +21,7 @@ function Dashboard() {
         setLoading(false);
       })
       .catch(() => {
-        alert("Unauthorized");
+        toast.error("Unauthorized");
         navigate("/login");
       });
   }, [navigate]);
@@ -97,7 +98,6 @@ function Dashboard() {
               </p>
             </div>
           </Link>
-          
         </div>
       </main>
     </div>
